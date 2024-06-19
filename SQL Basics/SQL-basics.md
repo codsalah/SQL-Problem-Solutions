@@ -381,3 +381,45 @@ Each time you link a new statement with an **OR**, you will need to specify the
 
 ![alt text](<Pasted image 20240618182313.png>)
 
+1. Find list of **orders** ids where either `gloss_qty` or `poster_qty` is greater than 4000. Only include the `id` field in the resulting table.  
+```sql
+SELECT id
+FROM orders 
+WHERE gloss_qty > 4000 or poster_qty > 4000
+```  
+    
+2. Write a query that returns a list of **orders** where the `standard_qty` is zero and either the `gloss_qty` or `poster_qty` is over 1000.  
+ ```sql
+SELECT id
+FROM orders 
+WHERE standard_qty =>= 0 and (poster_qty > 1000 or gloss_qty > 1000)
+```    
+    
+3. Find all the company names that start with a 'C' or 'W', and the primary contact **contains** 'ana' or 'Ana', but it doesn't contain 'eana'.
+ ```sql
+SELECT id
+FROM orders 
+WHERE (name LIKE 'C%' or name LIKE 'W%') 
+	AND ((primary_poc LIKE '%ana%' OR primary_poc LIKE '%Ana%') 
+	AND primary_poc NOT LIKE '%eana%');
+```    
+
+## Recap
+### Commands
+
+You have already learned a lot about writing code in SQL! Let's take a moment to recap all that we have covered before moving on:
+
+| **Statement** | **How to Use It**                | **Other Details**                                                                                     |
+| ------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| SELECT        | SELECT **Col1**, **Col2**, …     | Provide the columns you want                                                                          |
+| FROM          | FROM **Table**                   | Provide the table where the columns exist                                                             |
+| LIMIT         | LIMIT **10 **                    | Limits based number of rows returned                                                                  |
+| ORDER BY      | ORDER BY **Col**                 | Orders table based on the column. Used with **DESC**. (from High to low), (date from early to latest) |
+| WHERE         | WHERE **Col > 5**                | A conditional statement to filter your results                                                        |
+| LIKE          | WHERE **Col LIKE '%me%'**        | Only pulls rows where column has 'me' within the text                                                 |
+| IN            | WHERE **Col IN ('Y', 'N')**      | A filter for only rows with column of 'Y' or 'N'                                                      |
+| NOT           | WHERE **Col NOT IN ('Y', 'N')**  | **NOT** is frequently used with **LIKE** and **IN**                                                   |
+| AND           | WHERE **Col1 > 5 AND Col2 < 3 ** | Filter rows where two or more conditions must be true                                                 |
+| OR            | WHERE **Col1 > 5 OR Col2 < 3**   | Filter rows where at least one condition must be true                                                 |
+| BETWEEN       | WHERE **Col BETWEEN 3 AND 5**    | Often easier syntax than using an **AND**                                                             |
+#############
