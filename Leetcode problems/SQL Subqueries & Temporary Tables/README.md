@@ -5,23 +5,23 @@ Sometimes the question you are trying to answer doesn't have an answer when work
 ## Subqueries
 Whenever we need to use existing tables to create a new table that we then want to query again, this is an indication that we will need to use some sort of **subquery**.
 
-![[Pasted image 20240619122814.png]]
-![[Pasted image 20240619122821.png]]
+![alt text](<Pasted image 20240619122814.png>)
+![alt text](<Pasted image 20240619122821.png>)
 
 this is now a query in a query also known as subquery, it require **Alias** 
-![[Pasted image 20240619122913.png]]
+![alt text](<Pasted image 20240619122913.png>)
 lets continue We want to find the average number of events for each day for each channel.
 The first inner table will provide us the number of events for each day and channel
 and then we will need to average these values together using a second query.
-![[Pasted image 20240619123039.png]]
-![[Pasted image 20240619123045.png]]
+![alt text](<Pasted image 20240619123039.png>)
+![alt text](<Pasted image 20240619123045.png>)
 Note that first your inner query will run on its own as an independent then the outer query will run on the result you got from the inner query
 
 if you are only returning a single value, you might use that value in a logical statement like **WHERE**, **HAVING**, or even **SELECT** - the value could be nested within a **CASE** statement.
 Just like:
 it works because the result of the subquery is only one cell
-![[Pasted image 20240619124301.png]]
-![[Pasted image 20240619124343.png]]
+![alt text](<Pasted image 20240619124301.png>)
+![alt text](<Pasted image 20240619124343.png>)
 
 **Note** ▶
 - Most conditional logic will work with subquery that return one cell result
@@ -45,12 +45,12 @@ WHERE DATE_TRUNC('month', occurred_at) =
 ```
 
 
-![[Pasted image 20240624040756.png]]
-![[Pasted image 20240624040803.png]]
+![alt text](<Pasted image 20240624040756.png>)
+![alt text](<Pasted image 20240624040803.png>)
 
 interesting example here we used the sub query in the where statement instead of joining the two tables to get the employee above age of 30
-![[Pasted image 20240624042408.png]]
-![[Pasted image 20240624042414.png]]
+![alt text](<Pasted image 20240624042408.png>)
+![alt text](<Pasted image 20240624042414.png>)
 ---
 ### Quiz Subquery
 
@@ -177,9 +177,9 @@ SELECT
 ## 00 Toy problems
 ### scalar subquery
 this is called scalar sub query as it return a single output 1 value, most of the time will be in the where statement and have an aggregation in it
-![[Pasted image 20240624051303.png]]
+![alt text](<Pasted image 20240624051303.png>)
 now merge them together with the subquery
-![[Pasted image 20240624051326.png]]
+![alt text](<Pasted image 20240624051326.png>)
 
 
 find the names of departments where the maximum salary is above
@@ -206,36 +206,36 @@ FROM employees e1;
 
 ### Multiple row subquery
 subquery that return multiple rows and multiple columns or return only 1 column and multiple rows.
-![[Pasted image 20240624052527.png]]
+![alt text](<Pasted image 20240624052527.png>)
 first find the highest salary for each department then combine it with employee table
 for first part
-![[Pasted image 20240624052815.png]]
-![[Pasted image 20240624052821.png|500]]
+![alt text](<Pasted image 20240624052815.png>)
+![alt text](<Pasted image 20240624052821.png>)
 now we need to use this query to get the employees
-![[Pasted image 20240624053007.png]]
-![[Pasted image 20240624053013.png|550]]
+![alt text](<Pasted image 20240624053007.png>)
+![alt text](<Pasted image 20240624053013.png>)
 
 ## 01 First problem 
 [Intuitive SQL For Data Analytics - Tutorial (youtube.com)](https://www.youtube.com/watch?v=mXW7JHJM34k)
-![[Pasted image 20240624044021.png]]
+![alt text](<Pasted image 20240624044021.png>)
 simple start
-![[Pasted image 20240624044035.png]]
+![alt text](<Pasted image 20240624044035.png>)
 this wont work as
-![[Pasted image 20240624044509.png]]
+![alt text](<Pasted image 20240624044509.png>)
 this comparesion can not be done 
-![[Pasted image 20240624044529.png]]
+![alt text](<Pasted image 20240624044529.png>)
 so how we can approach this problem
 one way is to know the minimum value of experience and insert that value in the where
-![[Pasted image 20240624044659.png]]
-![[Pasted image 20240624044704.png]]
+![alt text](<Pasted image 20240624044659.png>)
+![alt text](<Pasted image 20240624044704.png>)
 the issue is that we don't want to hard code it so to solve this problem we will use a subquery
-![[Pasted image 20240624044807.png]]
+![alt text](<Pasted image 20240624044807.png>)
 SQL internally will run the inner code to get the minimum value so this is the first condition
 the second condition:
-![[Pasted image 20240624044935.png]]
+![alt text](<Pasted image 20240624044935.png>)
 
 ## 02 Second problem
-![[Pasted image 20240624045354.png|680]]
+![alt text](<Pasted image 20240624045354.png>)
 _**Mentee table**_
 **first** we go to the character table which have information about the mentee, and we labeled the table as `mentee_table` 
 **second** we filtered it because we are not interested in characters that do not have a mentor
@@ -245,7 +245,7 @@ so we need to select it using a subquery like:
 **first** we go to characters table and we now call it `mentor_table`
 **second** a condition where the id of the second table (mentor table) is the same as the id of the first table (mentee table)
 
-![[Pasted image 20240624050149.png]]
+![alt text](<Pasted image 20240624050149.png>)
 
 now we want to see the difference between the character and their mentor
 subtract the mentor experience from the mentee experience
