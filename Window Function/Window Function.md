@@ -280,3 +280,50 @@ FROM Employee;
 
 ![alt text](<Pasted image 20240707213718.png>)
 
+### Elements of PIVOT
+• Pivoting includes three phases:
+- Grouping determines which element gets a row in the result set
+- Spreading provides the distinct values to be pivoted across
+- Aggregation performs an aggregation function (such as SUM)
+
+![alt text](<Pasted image 20240707213822.png>)
+
+![alt text](<Pasted image 20240707213827.png>)
+
+![alt text](<Pasted image 20240707214106.png>)
+
+
+### UNPIVOT
+![alt text](<Pasted image 20240707214212.png>)
+
+### Grouping Sets
+- clause BY GROUP T-SQL on builds subclause SETS GROUPING •
+- query same in defined be to groupings multiple Allows •
+- outputs multiple combine to ALL UNION of use to Alternative •
+- set result one into (BY GROUP different with each)
+
+![alt text](<Pasted image 20240707214409.png>)
+
+![alt text](<Pasted image 20240707214514.png>)
+
+![alt text](<Pasted image 20240707214921.png>)
+
+## Cube 
+_Available in: Oracle, SQL Server, and Postgres (not MySQL)._
+It’s similar to ROLLUP in SQL but allows for more subtotals to be shown.
+
+![alt text](<Pasted image 20240707220556.png>)
+
+The `CUBE` operation generates a result set that includes subtotals for every combination of the columns
+gives you the sum but with all the combinations
+
+## ROLLUP
+![alt text](<Pasted image 20240707220606.png>)
+Generates hierarchical subtotals moving from specific to general.
+Provides subtotals moving from specific to more general,
+Provides fewer subtotals compared to `CUBE`.
+## Grouping Id
+
+![alt text](<Pasted image 20240707215322.png>)
+
+# Task
