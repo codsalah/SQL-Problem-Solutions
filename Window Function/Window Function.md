@@ -215,3 +215,68 @@ note that it all need `order by`, shift also but to get from the after record
 ![alt text](<Pasted image 20240708083118.png>)
 
 ![alt text](<Pasted image 20240708083130.png>)
+
+##### Nulls in lead
+if you find null this means that the category is finished (the last record in the category)
+### First value 
+To retrieve the first value within a partition ordered by a specific criteria (e.g., salary), you can use the `FIRST_VALUE()` window function.
+```sql
+SELECT
+    fname,
+    lname,
+    dno,
+    salary,
+    FIRST_VALUE(salary) OVER (PARTITION BY dno ORDER BY salary ASC) AS first_salary
+FROM Employee;
+```
+
+**`FIRST_VALUE(salary) OVER (PARTITION BY dno ORDER BY salary ASC)`**:
+
+- **`FIRST_VALUE(salary)`**: Retrieves the first value of `salary` within each partition (`dno`).
+- **`OVER (PARTITION BY dno ORDER BY salary ASC)`**: Partitions the data by `dno` and orders rows within each partition by `salary` in ascending order (`ASC`).
+### last value
+SQL does not have a direct function like `LAST_VALUE()` for window functions because it requires specifying the entire window frame, which is often not practical.
+
+```sql
+SELECT
+    fname,
+    lname,
+    dno,
+    salary,
+    MAX(salary) OVER (PARTITION BY dno ORDER BY salary ASC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS last_salary
+FROM Employee;
+```
+
+# Window Boundaries
+
+![alt text](<Pasted image 20240707213224.png>)
+
+```sql
+SELECT
+    fname,
+    lname,
+    dno,
+    salary,
+    SUM(salary) OVER(ORDER BY salary DESC ROWS 
+    BETWEEN 1 PRECEDING AND 1 FOLLOWING) AS PrevEmp
+FROM Employee;
+```
+
+![alt text](<Pasted image 20240707213603.png>)
+```sql
+SELECT
+    fname,
+    lname,
+    dno,
+    salary,
+    SUM(salary) OVER(ORDER BY salary DESC ROWS BETWEEN 1 PRECEDING AND 0 FOLLOWING) AS PrevEmp
+FROM Employee;
+```
+![alt text](<Pasted image 20240707213625.png>)
+
+# Pivoting and Grouping Sets
+- Pivoting data is rotating data from a `rows-based` orientation to a `columns-based` orientation.
+- Distinct values from a single column are projected across as headings for other columns _may include aggregation_
+
+![alt text](<Pasted image 20240707213718.png>)
+
