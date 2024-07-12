@@ -148,3 +148,22 @@ Dynamic SQL refers to the technique of constructing SQL statements at runtime an
 ![alt text](<Pasted image 20240712214238.png>)
 
 
+![alt text](<Pasted image 20240712214227.png>)
+![alt text](<Pasted image 20240712214230.png>)
+
+
+# Error handling 
+![alt text](<Pasted image 20240712214011.png>)
+- System error message are in `sys.messages`
+- Add custom application errors using `sp_add_message`
+# Raise error
+## raise
+
+## throw
+
+## alerts
+
+
+
+## try catch
+
