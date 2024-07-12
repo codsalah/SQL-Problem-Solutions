@@ -103,3 +103,48 @@ BEGIN
     SELECT @product_count = @@ROWCOUNT;
 END;
 ```
+
+![alt text](<Pasted image 20240712205130.png>)
+
+![alt text](<Pasted image 20240712205222.png>)
+
+![alt text](<Pasted image 20240712205349.png>)
+
+## Dynamic SQL
+Dynamic SQL refers to the technique of constructing SQL statements at runtime and then executing them within your database management system
+
+![alt text](<Pasted image 20240712210629.png>)
+
+# T-SQL Batches
+## Batches
+- Batches are parsed for syntax as a unit
+	- Syntax errors cause the entire batch to be rejected
+	- Runtime errors may allow the batch to continue after failure, by default.
+	- 
+![alt text](<Pasted image 20240712212844.png>)
+
+
+## synonym
+
+![alt text](<Pasted image 20240712212906.png>)
+![alt text](<Pasted image 20240712212950.png>)
+
+## CONTROL OF FLOW
+![alt text](<Pasted image 20240712213031.png>)
+
+## Working with IF...ELSE
+
+• The IF...ELSE statement is a control-flow statement that allows you to execute or skip a statement block based on a specified condition.
+• The following illustrates the syntax of the IF statement:
+![alt text](<Pasted image 20240712213106.png>)
+
+![alt text](<Pasted image 20240712213710.png>)
+![alt text](<Pasted image 20240712213721.png>)
+
+# WHILE
+![alt text](<Pasted image 20240712213726.png>)
+![alt text](<Pasted image 20240712213729.png>)
+![alt text](<Pasted image 20240712213740.png>)
+![alt text](<Pasted image 20240712214238.png>)
+
+
