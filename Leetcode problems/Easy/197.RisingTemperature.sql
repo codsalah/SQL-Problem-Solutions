@@ -6,3 +6,4 @@ WITH TempCompare AS (
 SELECT id 
 FROM TempCompare 
 WHERE prevTEMP IS NOT NULL AND temperature > prevTEMP;
+
